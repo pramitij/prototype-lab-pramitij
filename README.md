@@ -27,3 +27,60 @@ Please reach out to your respective TA if you need any help in regards with subm
 Author:
 - Aditya Mulik (mulik.a@northeastern.edu)
 - Sai Akhil Vemula (vemula.v@northeastern.edu)
+
+### Specifications of Assignment
+LAB:
+
+FOLLOW ALL INSTRUCTIONS:
+
+Design a MyCloneable class to demonstrate object cloning in java, e.g. implement the Cloneable interface
+
+/**
+* Demonstrate the use of the Abstract Factory, Builder and Prototype design patterns as follows:
+*
+* get and use Item objects to sell UPPERCASE LETTERS
+*
+* sell all 26 upper case alphabetic letters (A-Z) with the following prices:
+*     A for $ 1.99
+*     B for $ 2.99
+*  . . .
+*     Y for $ 25.99
+*     Z for $ 26.99
+*
+* 1. Develop MyCloneable class with Builder and the following inner classes:
+* 2. Derive MyCloneableItem class from MyCloneable class
+* 3. Develop MyCloneableAbstractFactory from SUPPLIED (below) MyCloneableAbstractFactoryAPI
+* 4. Develop MyCloneableAbstractFactorySingleton
+* 5. Load MyCloneableAbstractFactory with 26 MyCloneableItem prototypes which are cloned upon request
+* 6. Demonstrate with console output showing use of 26 Letter Items with ID, Price and Name attributes.
+*
+* @author dpeters
+*
+*/
+
+    /**
+     * API for abstract factory of cloneable objects
+     * 
+     * @author dpeters
+     *
+     */
+    public static abstract class MyCloneableAbstractFactoryAPI {
+        /**
+         * @param id            ID of prototype
+         * @param prototype        one cloneable prototype object
+         */
+        public abstract void load(int id, MyCloneable prototype);
+        /**
+         * dynamically load list of prototypes
+         * 
+         * @param prototypeList        list of cloneable prototype objects
+         */
+        public abstract void load(HashMap<Integer, MyCloneable> prototypeList);
+        /**
+         * return clone of requested object
+         * 
+         * @param id            ID of requested object
+         * @return                cloned object
+         */
+        public abstract MyCloneable getObject(int id);
+    }
